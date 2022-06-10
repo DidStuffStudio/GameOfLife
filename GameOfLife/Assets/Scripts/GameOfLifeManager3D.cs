@@ -47,6 +47,11 @@ namespace DidSuffStudio {
                         grid[i, j, k] = Random.Range(0, 2);
                         _cellsGameObjects[i, j, k] = Instantiate(_cellPrefab, transform);
                         _cellsGameObjects[i, j, k].transform.position = new Vector3(i, j, k) * cellGridOffset;
+                        _cellsGameObjects[i, j, k].GetComponentInChildren<MeshRenderer>().material.color = new Color(
+                            (float)i / resolution,
+                            (float)j / resolution,
+                            (float)k / resolution
+                        );
                     }
                 }
             }
